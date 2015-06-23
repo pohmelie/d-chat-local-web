@@ -21,7 +21,7 @@ executables = [
 
 setup(
     name="d-chat-local-web",
-    version="0.0.1",
+    version="0.0.2",
     description="",
     options=options,
     executables=executables,
