@@ -1599,7 +1599,7 @@
         this.disconnect = bind(this.disconnect, this);
         this.connect = bind(this.connect, this);
         this.websocket_ok = false;
-        this.socket = new WebSocket("ws://localhost:8888/bin");
+        this.socket = new WebSocket("ws://localhost:" + location.port + "/bin");
         this.socket.onopen = (function(_this) {
           return function() {
             return _this.websocket_ok = true;
@@ -1612,13 +1612,17 @@
         })(this);
         this.socket.onmessage = (function(_this) {
           return function(e) {
-            return _this.on_data(e.data);
+            return typeof _this.on_data === "function" ? _this.on_data(e.data) : void 0;
+          };
+        })(this);
+        this.socket.onerror = (function(_this) {
+          return function(e) {
+            return typeof _this.on_error === "function" ? _this.on_error(e.message) : void 0;
           };
         })(this);
       }
 
       WebSocketBridge.prototype.connect = function(address, port) {
-        console.log("connect", address, port);
         this.socket.send(JSON.stringify({
           "type": "CONNECT",
           "address": address,
@@ -1628,7 +1632,6 @@
       };
 
       WebSocketBridge.prototype.disconnect = function() {
-        console.log("disconnect");
         this.socket.send(JSON.stringify({
           "type": "DISCONNECT"
         }));

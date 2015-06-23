@@ -5,14 +5,14 @@ class socket
         constructor: (@on_data, @on_error) ->
 
             @websocket_ok = false
-            @socket = new WebSocket("ws://localhost:8888/bin")
+            @socket = new WebSocket("ws://localhost:#{location.port}/bin")
             @socket.onopen = () => @websocket_ok = true
             @socket.onclose = () => @websocket_ok = false
-            @socket.onmessage = (e) => @on_data(e.data)
+            @socket.onmessage = (e) => @on_data?(e.data)
+            @socket.onerror = (e) => @on_error?(e.message)
 
         connect: (address, port) =>
 
-            console.log("connect", address, port)
             @socket.send(
                 JSON.stringify({
                     "type": "CONNECT",
@@ -24,7 +24,6 @@ class socket
 
         disconnect: () =>
 
-            console.log("disconnect")
             @socket.send(JSON.stringify({"type": "DISCONNECT"}))
             return true
 

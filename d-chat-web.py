@@ -1,6 +1,16 @@
+"""d-chat-local-web
+
+Usage: d-chat-local-web [options]
+
+Options:
+    --host=host             host for binding
+    --port=port             port for binding [default: 8080]
+"""
 import asyncio
 import json
 import webbrowser
+
+import docopt
 
 from aiohttp import web, MsgType
 
@@ -31,7 +41,7 @@ def websocket_handler(request):
     ws = web.WebSocketResponse()
     ws.start(request)
     reader = writer = None
-    while True:
+    while not ws.closed:
 
         msg = yield from ws.receive()
         if msg.tp != MsgType.text:
@@ -74,15 +84,22 @@ def init(loop):
     app.router.add_route("GET", "/bin", websocket_handler)
     app.router.add_static("/", "static")
 
-    yield from loop.create_server(app.make_handler(), None, 8888)
-    print("Server started at http://127.0.0.1:8888")
+    server = yield from loop.create_server(
+        app.make_handler(),
+        args["--host"],
+        int(args["--port"]),
+    )
+    host, port = server.sockets[0].getsockname()
+
+    print(str.format("Server started at {}:{}", host, port))
+    webbrowser.open(str.format("http://127.0.0.1:{}", port))
 
 
+args = docopt.docopt(__doc__)
 loop = asyncio.get_event_loop()
 loop.run_until_complete(init(loop))
 try:
 
-    webbrowser.open("http://127.0.0.1:8888")
     loop.run_forever()
 
 except KeyboardInterrupt:
