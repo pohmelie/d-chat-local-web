@@ -18,6 +18,8 @@ intro = """
     For more information type '<span class='color-error'>\\help</span>'
     or press <span class='color-error'>f1</span>.
 <br><br>
-Version: 23.06.2015
+Version: 23.06.2015<br>
+Feature requests and issues at
+<a href="https://github.com/pohmelie/d-chat-local-web" target="_blank">d-chat-local-web</a>
 </span>
 """
