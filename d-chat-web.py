@@ -74,7 +74,7 @@ def init(loop):
     app.router.add_route("GET", "/bin", websocket_handler)
     app.router.add_static("/", "static")
 
-    yield from loop.create_server(app.make_handler(), "127.0.0.1", 8888)
+    yield from loop.create_server(app.make_handler(), None, 8888)
     print("Server started at http://127.0.0.1:8888")
 
 
