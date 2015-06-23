@@ -36,6 +36,10 @@ def websocket_handler(request):
         msg = yield from ws.receive()
         if msg.tp != MsgType.text:
 
+            if writer:
+
+                writer.close()
+
             break
 
         o = json.loads(msg.data)
