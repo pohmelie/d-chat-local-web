@@ -1,5 +1,6 @@
 import asyncio
 import json
+import webbrowser
 
 from aiohttp import web, MsgType
 
@@ -77,6 +78,7 @@ loop = asyncio.get_event_loop()
 loop.run_until_complete(init(loop))
 try:
 
+    webbrowser.open("http://127.0.0.1:8888")
     loop.run_forever()
 
 except KeyboardInterrupt:
