@@ -4,6 +4,10 @@ class socket
 
         constructor: (@on_data, @on_disconnect, @on_error) ->
 
+            @reset()
+
+        reset: () ->
+
             @websocket_ok = false
             @socket = new WebSocket("ws://localhost:#{location.port}/bin")
             @socket.onmessage = @receive

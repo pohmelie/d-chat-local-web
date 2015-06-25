@@ -181,6 +181,7 @@ class Dchat
 
         else
 
+            @websocket.reset()
             setTimeout((() => @connect(acc, pass, hashed)), 1000)
 
 

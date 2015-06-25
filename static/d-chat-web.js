@@ -1600,6 +1600,10 @@
         this.send = bind(this.send, this);
         this.disconnect = bind(this.disconnect, this);
         this.connect = bind(this.connect, this);
+        this.reset();
+      }
+
+      WebSocketBridge.prototype.reset = function() {
         this.websocket_ok = false;
         this.socket = new WebSocket("ws://localhost:" + location.port + "/bin");
         this.socket.onmessage = this.receive;
@@ -1614,7 +1618,7 @@
             return typeof _this.on_disconnect === "function" ? _this.on_disconnect() : void 0;
           };
         })(this);
-        this.socket.onerror = (function(_this) {
+        return this.socket.onerror = (function(_this) {
           return function(e) {
             _this.websocket_ok = false;
             if (typeof _this.on_error === "function") {
@@ -1623,7 +1627,7 @@
             return typeof _this.on_disconnect === "function" ? _this.on_disconnect() : void 0;
           };
         })(this);
-      }
+      };
 
       WebSocketBridge.prototype.connect = function(address, port) {
         this.socket.send(JSON.stringify({
@@ -2044,6 +2048,7 @@
         this.bn.login(acc, pass, hashed);
         return this.connected = true;
       } else {
+        this.websocket.reset();
         return setTimeout(((function(_this) {
           return function() {
             return _this.connect(acc, pass, hashed);
