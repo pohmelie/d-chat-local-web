@@ -97,6 +97,7 @@ class Dchat
 
         @websocket.on_data = @bn.on_packet
         @websocket.on_error = @socket_error
+        @websocket.on_disconnect = @disconnect
 
         $(@input_id).on("keydown", @input_key)
         $(window).on("keydown", @global_key)
@@ -180,10 +181,10 @@ class Dchat
 
         else
 
-            setTimeout((() => @connect(acc, pass, hashed)), 100)
+            setTimeout((() => @connect(acc, pass, hashed)), 1000)
 
 
-    disconnect: () ->
+    disconnect: () =>
 
         if @connected
 
