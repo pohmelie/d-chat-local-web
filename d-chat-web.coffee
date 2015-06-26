@@ -97,7 +97,7 @@ class Dchat
 
         @websocket.on_data = @bn.on_packet
         @websocket.on_error = @socket_error
-        @websocket.on_disconnect = @disconnect
+        @websocket.on_disconnect = @reconnect_on_disconnection
 
         $(@input_id).on("keydown", @input_key)
         $(window).on("keydown", @global_key)
@@ -112,6 +112,17 @@ class Dchat
         if localStorage.autotrade == "true"
 
             @command("autotrade-start")
+
+
+    reconnect_on_disconnection: () =>
+
+        if @connected
+
+            @command("connect")
+
+        else
+
+            @disconnect()
 
 
     render_phrases: (phrases...) =>
@@ -189,8 +200,8 @@ class Dchat
 
         if @connected
 
-            @websocket.disconnect()
             @connected = false
+            @websocket.disconnect()
             @command("echo Disconnected.")
             @users_count = 0
             @channel = null
@@ -220,7 +231,7 @@ class Dchat
 
         else
 
-            title = "d-chat-web"
+            title = "d-chat-local-web"
 
         @tabs.main.set_title(title)
         $(document).attr("title", title)

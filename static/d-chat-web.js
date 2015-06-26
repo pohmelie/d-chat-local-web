@@ -1773,7 +1773,7 @@
 
   })();
 
-  intro = "<span class='color-text'>\n<pre class='color-system'>\n     _             _           _                      _\n    | |           | |         | |                    | |\n  __| |        ___| |__   __ _| |_      __      __ __| |__\n / _` |  __   / __| '_ \\ / _` | __|  __ \\ \\ /\\ / / _ \\ '_ \\\n| (_| | (__) | (__| | | | (_| | |_  (__) \\ V  V /  __/ |_) |\n \\__,_|       \\___|_| |_|\\__,_|\\__|       \\_/\\_/ \\___|_.__/\n</pre>\n<br>\n    Welcome to\n    <span class='color-whisper'>d-chat-local-web</span>\n    — fully (almost) client-side\n    <span class='color-error'>ru</span><span class='color-system'>battle.net</span>\n    chat client.\n    <br>\n    For more information type '<span class='color-error'>\\help</span>'\n    or press <span class='color-error'>f1</span>.\n<br><br>\nVersion: 23.06.2015<br>\nFeature requests and issues at\n<a href=\"https://github.com/pohmelie/d-chat-local-web\" target=\"_blank\">d-chat-local-web</a>\n</span>";
+  intro = "<span class='color-text'>\n<pre class='color-system'>\n┌┬┐   ┌─┐┬ ┬┌─┐┌┬┐  ┬  ┌─┐┌─┐┌─┐┬   ┬ ┬┌─┐┌┐\n ││───│  ├─┤├─┤ │───│  │ ││  ├─┤│───│││├┤ ├┴┐\n─┴┘   └─┘┴ ┴┴ ┴ ┴   ┴─┘└─┘└─┘┴ ┴┴─┘ └┴┘└─┘└─┘\n</pre>\n<br>\n    Welcome to\n    <span class='color-whisper'>d-chat-local-web</span>\n    — fully (almost) client-side\n    <span class='color-error'>ru</span><span class='color-system'>battle.net</span>\n    chat client.\n    <br>\n    For more information type '<span class='color-error'>\\help</span>'\n    or press <span class='color-error'>f1</span>.\n<br><br>\nVersion: 0.1.0<br>\nFeature requests and issues are welcome at\n<a href=\"https://github.com/pohmelie/d-chat-local-web\" target=\"_blank\">d-chat-local-web</a>\n</span>";
 
   Autotrade = (function() {
     function Autotrade(say, msg1, activity, timeout) {
@@ -1913,7 +1913,7 @@
   })();
 
   help_message = function(delimiter) {
-    return "d-chat-web help information.\nCommands:\n\n    " + delimiter + "echo message\n        Print message to screen without sending to battle.net.\n\n    " + delimiter + "connect account password\n        Disconnect if connected and connect to battle.net.\n\n    " + delimiter + "disconnect\n        Disconnect from battle.net.\n\n    " + delimiter + "reload\n        Reloads 'init' file. 'init' file loads on start and simply executes like user input.\n\n    " + delimiter + "autoscroll\n        Switch autoscroll on/off. Default 'on'.\n\n    " + delimiter + "help\n        Show help information.\n\n    " + delimiter + "tab-mode\n        Switch tab-mode on/off. Default 'on'.\n\n    " + delimiter + "autotrade-message message\n    " + delimiter + "atm message\n        Set autotrade message.\n\n    " + delimiter + "autotrade-timeout timeout\n        Set autotrade timeout in seconds. Default 300.\n\n    " + delimiter + "autotrade-activity count\n        Set autotrade use-activity value. When use-activity mode is on, autotrade message won't appear before 'count' messages. This is good for 'not to spam' and 'be quiet'. Default 10.\n\n    " + delimiter + "autotrade-start\n        Start autotrade loop.\n\n    " + delimiter + "autotrade-stop\n        Stop autotrade loop.\n\n    " + delimiter + "autotrade-info\n        Show current state of autotrade.\n\n    " + delimiter + "calc actions\n        Stack oriented rune calculator without memory. 'actions' — space-separated sequence of commands. Available commands:\n\n            count {'pul', ..., 'jah'}\n                Put 'count' (1 if omitted) runes on stack. You can only use runes from 'pul' to 'jah'.\n\n            p\n                Print stack with \"highest\" rune 'jah'.\n\n            to {'pul', ..., 'jah'}\n                Print stack with specified \"highest\" rune.\n\n            c\n                Clear stack.\n\n            t\n                Show stack size in \"trains\" (7 mules average hellforge rune drop).\n\n            count'%'\n                Print 'count' percents of stack.\n\n        Example:\n\n            Input:\n                " + delimiter + "calc 15 pul um p -1 pul p to ist 25% t c t\n\n            Output:\n                1 gul, 1 pul\n                1 gul\n                2 ist\n                25% of stack = 1 mal\n                Trains count: 1\n                Trains count: 0\n                Stack: stack is empty.\n\n    " + delimiter + "clear-local-storage\n        Erase local options.\n\n    " + delimiter + "clear-screen\n        Clear main tab.\n\n\nShortcuts:\n\n    ctrl + right/left\n        Switch to next/previous tab.\n\n    ctrl + w\n        Close current tab.\n\n    ctrl + s\n        Switch autotrade on/off.\n\n    ctrl + r\n        Same as '" + delimiter + "reload'.\n\n    ctrl + d\n        Same as '" + delimiter + "disconnect'.\n\n    ctrl + i\n        Same as '" + delimiter + "autotrade-info'.\n\n    ctrl + m\n        Switch to main tab.\n\n    up/down\n        Browse commands history.\n\n    tab\n        Request autocomplete. Autocompletes if there is one possibility, prints all possibilities else.";
+    return "d-chat-local-web help information.\nCommands:\n\n    " + delimiter + "echo message\n        Print message to screen without sending to battle.net.\n\n    " + delimiter + "connect account password\n        Disconnect if connected and connect to battle.net.\n\n    " + delimiter + "disconnect\n        Disconnect from battle.net.\n\n    " + delimiter + "reload\n        Reloads 'init' file. 'init' file loads on start and simply executes like user input.\n\n    " + delimiter + "autoscroll\n        Switch autoscroll on/off. Default 'on'.\n\n    " + delimiter + "help\n        Show help information.\n\n    " + delimiter + "tab-mode\n        Switch tab-mode on/off. Default 'on'.\n\n    " + delimiter + "autotrade-message message\n    " + delimiter + "atm message\n        Set autotrade message.\n\n    " + delimiter + "autotrade-timeout timeout\n        Set autotrade timeout in seconds. Default 300.\n\n    " + delimiter + "autotrade-activity count\n        Set autotrade use-activity value. When use-activity mode is on, autotrade message won't appear before 'count' messages. This is good for 'not to spam' and 'be quiet'. Default 10.\n\n    " + delimiter + "autotrade-start\n        Start autotrade loop.\n\n    " + delimiter + "autotrade-stop\n        Stop autotrade loop.\n\n    " + delimiter + "autotrade-info\n        Show current state of autotrade.\n\n    " + delimiter + "calc actions\n        Stack oriented rune calculator without memory. 'actions' — space-separated sequence of commands. Available commands:\n\n            count {'pul', ..., 'jah'}\n                Put 'count' (1 if omitted) runes on stack. You can only use runes from 'pul' to 'jah'.\n\n            p\n                Print stack with \"highest\" rune 'jah'.\n\n            to {'pul', ..., 'jah'}\n                Print stack with specified \"highest\" rune.\n\n            c\n                Clear stack.\n\n            t\n                Show stack size in \"trains\" (7 mules average hellforge rune drop).\n\n            count'%'\n                Print 'count' percents of stack.\n\n        Example:\n\n            Input:\n                " + delimiter + "calc 15 pul um p -1 pul p to ist 25% t c t\n\n            Output:\n                1 gul, 1 pul\n                1 gul\n                2 ist\n                25% of stack = 1 mal\n                Trains count: 1\n                Trains count: 0\n                Stack: stack is empty.\n\n    " + delimiter + "clear-local-storage\n        Erase local options.\n\n    " + delimiter + "clear-screen\n        Clear main tab.\n\n\nShortcuts:\n\n    ctrl + right/left\n        Switch to next/previous tab.\n\n    ctrl + w\n        Close current tab.\n\n    ctrl + s\n        Switch autotrade on/off.\n\n    ctrl + r\n        Same as '" + delimiter + "reload'.\n\n    ctrl + d\n        Same as '" + delimiter + "disconnect'.\n\n    ctrl + i\n        Same as '" + delimiter + "autotrade-info'.\n\n    ctrl + m\n        Switch to main tab.\n\n    up/down\n        Browse commands history.\n\n    tab\n        Request autocomplete. Autocompletes if there is one possibility, prints all possibilities else.";
   };
 
   Dchat = (function() {
@@ -1934,6 +1934,7 @@
       this.socket_error = bind(this.socket_error, this);
       this.login_error = bind(this.login_error, this);
       this.render_phrases = bind(this.render_phrases, this);
+      this.reconnect_on_disconnection = bind(this.reconnect_on_disconnection, this);
       this.max_symbols = 199;
       this.min_autotrade_timeout = 120;
       this.min_autotrade_activity = 0;
@@ -1979,7 +1980,7 @@
       this.bn = new bnet.Bnet("rubattle.net", 6112, this.websocket.connect, this.websocket.send, this.login_error, this.chat_event);
       this.websocket.on_data = this.bn.on_packet;
       this.websocket.on_error = this.socket_error;
-      this.websocket.on_disconnect = this.disconnect;
+      this.websocket.on_disconnect = this.reconnect_on_disconnection;
       $(this.input_id).on("keydown", this.input_key);
       $(window).on("keydown", this.global_key);
       this.refresh_title();
@@ -1991,6 +1992,14 @@
         this.command("autotrade-start");
       }
     }
+
+    Dchat.prototype.reconnect_on_disconnection = function() {
+      if (this.connected) {
+        return this.command("connect");
+      } else {
+        return this.disconnect();
+      }
+    };
 
     Dchat.prototype.render_phrases = function() {
       var color, html, l, len, msg, phrase, phrases, raw;
@@ -2060,8 +2069,8 @@
     Dchat.prototype.disconnect = function() {
       var k, ref, v;
       if (this.connected) {
-        this.websocket.disconnect();
         this.connected = false;
+        this.websocket.disconnect();
         this.command("echo Disconnected.");
         this.users_count = 0;
         this.channel = null;
@@ -2088,7 +2097,7 @@
           title = this.channel + " (" + this.users_count + ")";
         }
       } else {
-        title = "d-chat-web";
+        title = "d-chat-local-web";
       }
       this.tabs.main.set_title(title);
       return $(document).attr("title", title);
