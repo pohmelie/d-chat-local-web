@@ -34,7 +34,9 @@ def socket_reader(ws, reader):
         s = str.join(" ", map(lambda x: str.format("{:0>2x}", x), data))
         ws.send_str(json.dumps({"type": "DATA", "data": s}))
 
-    ws.send_str(json.dumps({"type": "DISCONNECT"}))
+    if not ws.closed:
+
+        ws.send_str(json.dumps({"type": "DISCONNECT"}))
 
 
 @asyncio.coroutine
