@@ -1,5 +1,5 @@
 help_message = (delimiter) -> """
-d-chat-web help information.
+d-chat-local-web help information.
 Commands:
 
     #{delimiter}echo message
