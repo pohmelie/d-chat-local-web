@@ -1,5 +1,5 @@
 #d-chat-local-web
-Almost pure client-side rubattle.net chat client. «Almost», cause we still need real sockets.
+Almost pure client-side rubattle.net chat client. «Almost», cause we still need real sockets. d-chat-local-web built on "websocket <-> real" socket bridge
 
 ##Reasons:
 * Crossplatform
@@ -12,10 +12,10 @@ Almost pure client-side rubattle.net chat client. «Almost», cause we still nee
 
 ## Requirements
 ###Bundle
-* Firefox/Chrome
+* Websocket compatible browser
 
 ###Source
-* Firefox/Chrome
+* Websocket compatible browser
 * Python3.4+
 * aiohttp
 
