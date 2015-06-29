@@ -1773,7 +1773,7 @@
 
   })();
 
-  intro = "<span class='color-text'>\n<pre class='color-system'>\n┌┬┐   ┌─┐┬ ┬┌─┐┌┬┐  ┬  ┌─┐┌─┐┌─┐┬   ┬ ┬┌─┐┌┐\n ││───│  ├─┤├─┤ │───│  │ ││  ├─┤│───│││├┤ ├┴┐\n─┴┘   └─┘┴ ┴┴ ┴ ┴   ┴─┘└─┘└─┘┴ ┴┴─┘ └┴┘└─┘└─┘\n</pre>\n<br>\n    Welcome to\n    <span class='color-whisper'>d-chat-local-web</span>\n    — fully (almost) client-side\n    <span class='color-error'>ru</span><span class='color-system'>battle.net</span>\n    chat client.\n    <br>\n    For more information type '<span class='color-error'>\\help</span>'\n    or press <span class='color-error'>f1</span>.\n<br><br>\nVersion: 0.1.0<br>\nFeature requests and issues are welcome at\n<a href=\"https://github.com/pohmelie/d-chat-local-web\" target=\"_blank\">d-chat-local-web</a>\n</span>";
+  intro = "<span class='color-text'>\n<pre class='color-system'>\n┌┬┐   ┌─┐┬ ┬┌─┐┌┬┐  ┬  ┌─┐┌─┐┌─┐┬   ┬ ┬┌─┐┌┐\n ││───│  ├─┤├─┤ │───│  │ ││  ├─┤│───│││├┤ ├┴┐\n─┴┘   └─┘┴ ┴┴ ┴ ┴   ┴─┘└─┘└─┘┴ ┴┴─┘ └┴┘└─┘└─┘\n</pre>\n<br>\n    Welcome to\n    <span class='color-whisper'>d-chat-local-web</span>\n    — fully (almost) client-side\n    <span class='color-error'>ru</span><span class='color-system'>battle.net</span>\n    chat client.\n    <br>\n    For more information type '<span class='color-error'>\\help</span>'\n    or press <span class='color-error'>f1</span>.\n<br><br>\nVersion: 0.1.1<br>\nFeature requests and issues are welcome at\n<a href=\"https://github.com/pohmelie/d-chat-local-web\" target=\"_blank\">d-chat-local-web</a>\n</span>";
 
   Autotrade = (function() {
     function Autotrade(say, msg1, activity, timeout) {
