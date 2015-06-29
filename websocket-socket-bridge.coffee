@@ -9,7 +9,7 @@ class socket
         reset: () ->
 
             @websocket_ok = false
-            @socket = new WebSocket("ws://localhost:#{location.port}/bin")
+            @socket = new WebSocket("ws://#{location.host}/bin")
             @socket.onmessage = @receive
             @socket.onopen = () => @websocket_ok = true
             @socket.onclose = () =>
