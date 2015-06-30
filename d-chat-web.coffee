@@ -116,8 +116,9 @@ class Dchat
 
     reconnect_on_disconnection: () =>
 
-        if @connected
+        if @connected or @reconnect
 
+            @reconnect = false
             @command("connect")
 
         else
@@ -196,7 +197,7 @@ class Dchat
             setTimeout((() => @connect(acc, pass, hashed)), 1000)
 
 
-    disconnect: () =>
+    disconnect: (@reconnect=false) =>
 
         if @connected
 
@@ -410,6 +411,18 @@ class Dchat
                 when 73  # 'i'
 
                     @command("autotrade-info")
+                    e.preventDefault()
+
+                when 67  # 'c'
+
+                    if @connected
+
+                        @disconnect(true)
+
+                    else
+
+                        @command("connect")
+
                     e.preventDefault()
 
         else if e.which == 112
