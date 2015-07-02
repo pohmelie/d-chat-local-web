@@ -35,6 +35,7 @@ class Dchat
                 localStorage.clear()
 
         @autoscroll = localStorage.autoscroll or true
+        @autoreconnect = localStorage.autoreconnect or false
         @account = localStorage.account
         @tab_mode = localStorage.tab_mode or true
 
@@ -60,8 +61,9 @@ class Dchat
             "autotrade-stop",
             "autotrade-info",
             "calc",
-            "clear-local-storage"
+            "clear-local-storage",
             "clear-screen",
+            "autoreconnect",
         ]
         @autocomplete = new Autocomplete(@commands_list.map((c) => @commands_prefix + c))
 
@@ -116,7 +118,7 @@ class Dchat
 
     reconnect_on_disconnection: () =>
 
-        if @connected or @reconnect
+        if @reconnect or @autoreconnect and @connected
 
             @reconnect = false
             @command("connect")
@@ -447,8 +449,14 @@ class Dchat
     toggle_autoscroll: () ->
 
         @autoscroll = not @autoscroll
+        localStorage.autoscroll = @autoscroll
         @command("echo Autoscroll set to #{@autoscroll}.")
 
+    toggle_autoreconnect: () ->
+
+        @autoreconnect = not @autoreconnect
+        localStorage.autoreconnect = @autoreconnect
+        @command("echo Autoreconnect set to #{@autoreconnect}.")
 
     common_message: (msg) =>
 
@@ -574,6 +582,10 @@ class Dchat
             when "autoscroll"
 
                 @toggle_autoscroll()
+
+            when "autoreconnect"
+
+                @toggle_autoreconnect()
 
             when "help"
 

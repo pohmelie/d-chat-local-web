@@ -17,6 +17,9 @@ Commands:
     #{delimiter}autoscroll
         Switch autoscroll on/off. Default 'on'.
 
+    #{delimiter}autoreconnect
+        Switch autoreconnect on/off. Default 'off'. Reconnect on lost socket connection.
+
     #{delimiter}help
         Show help information.
 
@@ -97,6 +100,9 @@ Shortcuts:
 
     ctrl + r
         Same as '#{delimiter}reload'.
+
+    ctrl + c
+        Same as '#{delimiter}connect'
 
     ctrl + d
         Same as '#{delimiter}disconnect'.
